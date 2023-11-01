@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Memory Game!</title>
+  <link rel="stylesheet" type="text/css" href="styles.css" />
+  <link rel="shortcut icon" href="/src/assets/icons8-card-game-64.png" type="image/x-icon">
+</head>
+
+<body>
+
+  <h1>Memory Game!</h1>
+  <div class="utils">
+    <p id="score"> Current Score: <span id="score_value">0</span></p>
+    <p id="lowestScore"> Lowest Score: <span id="lowestScore_value"></span> </p>
+    <button onclick="newGame()">New Game</button>
+  </div>
+  <div id="game"></div>
+  <footer>Copyright &copy;
+    <script>document.write(new Date().getFullYear())</script>
+    <a href="https:github.com/nathanrydel" target="_blank">Nathan Rydel</a> All Rights Reserved
+  </footer>
+  <script src="index.js"></script>
+
+</body>
+
+</html>

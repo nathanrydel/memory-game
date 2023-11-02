@@ -12,7 +12,7 @@ If not, the cards should remain displayed to the player for one second, and then
 
 The goal of the game is to match up all the pairs.
 
-You can find a 30 second video demo of a possible solution [here](#).
+You can find a 30 second video demo of a possible solution [here](https://drive.google.com/file/d/1HeBfQe-AGnFGL8YmEt2wnfEwnNL0abFJ/view).
 
 You should submit a zip file containing your code as part of this assessment.
 

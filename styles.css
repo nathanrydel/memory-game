@@ -1,3 +1,4 @@
+/* Mobile-First Styles (Default) */
 body {
   min-height: 100vh;
   min-width: 100vw;
@@ -8,11 +9,12 @@ body {
 h1 {
   text-align: center;
   font-weight: 700;
-  font-size: 48px;
+  font-size: 32px;
+  margin-top: 56px;
 }
 
 p {
-  font-size: 30px;
+  font-size: 24px;
   font-weight: bold;
 }
 
@@ -20,47 +22,94 @@ p {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
 }
 
 .utils button {
-  display: flex;
-  align-items: center;
   height: 48px;
-  width: 130px;
+  width: 200px;
   padding: 16px;
   font-size: 18px;
   border-radius: 10px;
   background-color: #27ae60;
   color: white;
-  margin-left: 24px;
+  margin: 10px 0;
   cursor: pointer;
 }
 
 #lowestScore {
-  margin-left: 24px;
+  margin: 10px 0;
 }
 
 #game {
   text-align: center;
-  height: 75vh;
+  height: auto;
+}
+
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  /* Allow cards to wrap to the next line */
+  justify-content: center;
+  /* Center-align the cards */
 }
 
 .card {
-  display: inline-block;
-  vertical-align: middle;
   background-color: grey;
-  display: inline-block;
   border: 1px solid black;
   width: 140px;
   height: 180px;
-  margin: 20px;
+  margin: 10px;
+  /* Adjust the margin for mobile */
   cursor: pointer;
   transform-style: preserve-3d;
   transition: all 0.5s ease-in-out;
 }
 
+/* Medium (md) and Large (lg) Bootstrap Breakpoints */
+@media (min-width: 768px) {
+  h1 {
+    font-size: 48px;
+  }
+
+  p {
+    font-size: 30px;
+  }
+
+  .utils {
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .utils button {
+    width: 130px;
+    margin: 0 24px;
+  }
+
+  #lowestScore {
+    margin-left: 24px;
+  }
+
+  .card-container {
+    justify-content: center;
+  }
+
+  .card {
+    margin: 20px;
+  }
+}
+
+@media (min-width: 992px) {
+
+  /* Adjusted styles for large screens (lg) */
+  #game {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+}
+
 footer {
-  margin: 40px 0;
+  margin: 20px 0;
   text-align: center;
 }
 

@@ -20,8 +20,8 @@ You should submit a zip file containing your code as part of this assessment.
 
 Take a look at the starter code provided.
 
-- We have an array of colors which we shuffle and then loop over to create 10 <div> elements on the page and give them a class of the color we loop over.
-- We then append the <div> elements to the DOM and add an event listener for a "click" for each of the elements.
+- We have an array of colors which we shuffle and then loop over to create 10 div elements on the page and give them a class of the color we loop over.
+- We then append the div elements to the DOM and add an event listener for a "click" for each of the elements.
 
 Make sure to read through the code before continuing on!
 

@@ -133,12 +133,32 @@ function clearBoard() {
   gameLock = false;
 }
 
+function showCards() {
+  const cardContainer = document.querySelector(".card-container");
+  cardContainer.style.opacity = 1;
+  cardContainer.style.transform = "scale(1)";
+
+  // setTimeout(() => {
+  //   cardContainer.style.opacity = 0;
+  //   cardContainer.style.transform = "scale(0.8)";
+  // }, 500);
+}
+
+function clearCardContainer() {
+  const cardContainer = document.querySelector(".card-container");
+  cardContainer.style.removeProperty("opacity");
+  cardContainer.style.removeProperty("transform");
+}
 
 function newGame() {
-  clearBoard();
-  const reShuffle = shuffle(COLORS);
-  createCards(reShuffle);
-  score = 0;
-  document.querySelector("#score_value").textContent = score;
-  matchedPairs = 0;
+  clearCardContainer();
+  setTimeout(() => {
+    clearBoard();
+    const reShuffle = shuffle(COLORS);
+    createCards(reShuffle);
+    score = 0;
+    document.querySelector("#score_value").textContent = score;
+    matchedPairs = 0;
+    showCards();
+  }, 500);
 }

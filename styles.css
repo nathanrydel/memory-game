@@ -46,6 +46,10 @@ p {
   text-align: center;
 }
 
+.utils button:hover {
+  transform: scale(1.1);
+}
+
 #lowestScore {
   margin: 10px 0;
 }
@@ -59,6 +63,9 @@ p {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  transition: all 0.5s ease-in-out;
+  opacity: 0;
+  transform: scale(0.8);
 }
 
 .card {

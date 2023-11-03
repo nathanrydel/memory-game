@@ -6,6 +6,7 @@
   <title>Memory Game!</title>
   <link rel="stylesheet" type="text/css" href="styles.css" />
   <link rel="shortcut icon" href="icons8-card-game-64.png" type="image/x-icon">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 
 <body>
@@ -14,7 +15,7 @@
   <div class="utils">
     <p id="score"> Current Score: <span id="score_value">0</span></p>
     <p id="lowestScore"> Lowest Score: <span id="lowestScore_value"></span> </p>
-    <button onclick="newGame()">New Game</button>
+    <button id="newGameButton">New Game</button>
   </div>
   <div id="game" class="card-container"></div>
   <footer>Copyright &copy;

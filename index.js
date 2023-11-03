@@ -137,11 +137,6 @@ function showCards() {
   const cardContainer = document.querySelector(".card-container");
   cardContainer.style.opacity = 1;
   cardContainer.style.transform = "scale(1)";
-
-  // setTimeout(() => {
-  //   cardContainer.style.opacity = 0;
-  //   cardContainer.style.transform = "scale(0.8)";
-  // }, 500);
 }
 
 function clearCardContainer() {

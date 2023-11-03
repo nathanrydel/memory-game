@@ -8,25 +8,26 @@ const COLORS = [
   "red", "blue", "green", "orange", "purple",
 ];
 
-const colors = shuffle(COLORS);
-
 let firstCard, secondCard;
 let score = 0;
-let lowestScore;
+let lowestScore = Infinity;
 let gameLock = false;
 let matchedPairs = 0;
 
+const lowestScoreValue = document.querySelector("#lowestScore_value");
+const scoreValue = document.querySelector("#score_value");
 
 if (localStorage.getItem("lowestScore")) {
   lowestScore = parseInt(localStorage.getItem("lowestScore"));
-  document.querySelector("#lowestScore_value").textContent = lowestScore;
-} else {
-  lowestScore = Infinity;
+  lowestScoreValue.textContent = lowestScore;
 }
 
 if (lowestScore === Infinity || lowestScore === 0) {
-  document.querySelector("#lowestScore_value").textContent = "No Score Set!";
+  lowestScoreValue.textContent = "No Score Set!";
 }
+
+const gameBoard = document.getElementById("game");
+const cardContainer = document.querySelector(".card-container");
 
 /** Shuffle array items in-place and return shuffled array. */
 
@@ -54,12 +55,9 @@ function shuffle(items) {
  */
 
 function createCards(colors) {
-  const gameBoard = document.getElementById("game");
-
   for (let color of colors) {
     const card = document.createElement("div");
-    card.classList.add(`card`);
-    card.classList.add(`${color}`);
+    card.classList.add("card", color);
     card.addEventListener("click", handleCardClick);
     gameBoard.appendChild(card);
   }
@@ -68,8 +66,7 @@ function createCards(colors) {
 /** Flip a card face-up. */
 
 function flipCard(card) {
-  const color = card.classList[1];
-  card.style.backgroundColor = `${color}`;
+  card.style.backgroundColor = card.classList[1];
 }
 
 /** Flip a card face-down. */
@@ -94,14 +91,13 @@ function handleCardClick(evt) {
   if (!firstCard) {
     firstCard = card;
     flipCard(firstCard);
-    return;
   } else {
     secondCard = card;
     flipCard(secondCard);
     score++;
     gameLock = true;
     checkCards();
-    document.querySelector("#score_value").textContent = score;
+    scoreValue.textContent = score;
   }
 }
 
@@ -121,26 +117,23 @@ function disableCards() {
   if (matchedPairs === COLORS.length / 2) {
     if (score < lowestScore) {
       lowestScore = score;
-      document.querySelector("#lowestScore_value").textContent = lowestScore;
+      lowestScoreValue.textContent = lowestScore;
       localStorage.setItem("lowestScore", lowestScore);
     }
   }
 }
 
 function clearBoard() {
-  const gameBoard = document.getElementById("game");
   gameBoard.innerHTML = "";
   gameLock = false;
 }
 
 function showCards() {
-  const cardContainer = document.querySelector(".card-container");
   cardContainer.style.opacity = 1;
   cardContainer.style.transform = "scale(1)";
 }
 
 function clearCardContainer() {
-  const cardContainer = document.querySelector(".card-container");
   cardContainer.style.removeProperty("opacity");
   cardContainer.style.removeProperty("transform");
 }
@@ -152,7 +145,7 @@ function newGame() {
     const reShuffle = shuffle(COLORS);
     createCards(reShuffle);
     score = 0;
-    document.querySelector("#score_value").textContent = score;
+    scoreValue.textContent = score;
     matchedPairs = 0;
     showCards();
   }, 500);
